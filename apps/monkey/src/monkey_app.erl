@@ -15,7 +15,7 @@
 %%====================================================================
 
 start(_StartType, _StartArgs) ->
-    erlang:display(["START MONKEY"]),
+    erlang:display(["START MONKEY NEW"]),
     monkey_sup:start_link().
 
 %%--------------------------------------------------------------------
