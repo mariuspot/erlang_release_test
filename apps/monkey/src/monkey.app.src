@@ -1,7 +1,7 @@
 %% Vsn auto-managed by relflow utility.
 %% DO NOT CHANGE VSN FIELD MANUALLY!
 {application,monkey,
-             [{vsn,"20180613-112335-relflow"},
+             [{vsn,"20180615-065125-relflow"},
               {description,"An OTP application"},
               {registered,[]},
               {mod,{monkey_app,[]}},

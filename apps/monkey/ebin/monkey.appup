@@ -1,3 +1,6 @@
-{"20180613-112335-relflow",
- [{"0.0.1",[{load_module,monkey_app}]}],
+{"20180615-065125-relflow",
+ [{"0.0.1",
+   [{add_module,monkey_gen},
+    {update,monkey_sup,supervisor},
+    {load_module,monkey_app}]}],
  [{"0.0.1",[]}]}.
