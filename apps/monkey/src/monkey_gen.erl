@@ -13,6 +13,8 @@
 %% API
 -export([start_link/0]).
 
+-export([ping/0]).
+
 %% gen_server callbacks
 -export([init/1,
          handle_call/3,
@@ -39,6 +41,7 @@ ping() ->
 %% @end
 %%--------------------------------------------------------------------
 start_link() ->
+        erlang:display([?MODULE,"start_link"]),
         gen_server:start_link({local, ?SERVER}, ?MODULE, [], []).
 
 %%%===================================================================
@@ -57,6 +60,7 @@ start_link() ->
 %% @end
 %%--------------------------------------------------------------------
 init([]) ->
+        erlang:display([?MODULE,"init"]),
         {ok, #state{}}.
 
 %%--------------------------------------------------------------------
@@ -74,8 +78,10 @@ init([]) ->
 %% @end
 %%--------------------------------------------------------------------
 handle_call(ping, _From, State) ->
+        erlang:display([?MODULE,"handle_call ping"]),
         {reply,pong,State};
 handle_call(_Request, _From, State) ->
+        erlang:display([?MODULE,"handle_call", _Request]),
         Reply = ok,
         {reply, Reply, State}.
 
@@ -90,6 +96,7 @@ handle_call(_Request, _From, State) ->
 %% @end
 %%--------------------------------------------------------------------
 handle_cast(_Msg, State) ->
+        erlang:display([?MODULE,"handle_cast",_Msg]),
         {noreply, State}.
 
 %%--------------------------------------------------------------------
@@ -103,6 +110,7 @@ handle_cast(_Msg, State) ->
 %% @end
 %%--------------------------------------------------------------------
 handle_info(_Info, State) ->
+        erlang:display([?MODULE,"handle_info",_Info]),
         {noreply, State}.
 
 %%--------------------------------------------------------------------
@@ -117,6 +125,7 @@ handle_info(_Info, State) ->
 %% @end
 %%--------------------------------------------------------------------
 terminate(_Reason, _State) ->
+        erlang:display([?MODULE,"terminate"]),
         ok.
 
 %%--------------------------------------------------------------------
@@ -128,6 +137,7 @@ terminate(_Reason, _State) ->
 %% @end
 %%--------------------------------------------------------------------
 code_change(_OldVsn, State, _Extra) ->
+        erlang:display([?MODULE,"code_change",_OldVsn,_Extra]),
         {ok, State}.
 
 %%%===================================================================
